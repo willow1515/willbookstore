@@ -1,0 +1,129 @@
+/* Willbookstore - estilo minimalista: café claro, blanco y gris */
+:root {
+    --blanco: #ffffff;
+    --papel: #faf9f7;
+    --cafe-claro: #b9966f;
+    --cafe-suave: #efe6db;
+    --cafe-oscuro: #7a5c3e;
+    --gris-texto: #4a4a4a;
+    --gris-medio: #8a8a8a;
+    --gris-linea: #e4e2df;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    color: var(--gris-texto);
+    background: var(--blanco);
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, .marca {
+    font-family: "Lora", Georgia, serif;
+    font-weight: 500;
+    color: #2f2f2f;
+    line-height: 1.25;
+}
+
+h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+h2 { font-size: 1.5rem; margin-bottom: 1.25rem; }
+h3 { font-size: 1.15rem; margin-bottom: .25rem; }
+
+a { color: var(--cafe-oscuro); }
+
+.contenedor {
+    width: min(100% - 2.5rem, 960px);
+    margin-inline: auto;
+}
+
+/* Encabezado */
+.encabezado { padding: 2rem 0 1.25rem; }
+.encabezado .contenedor { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.marca { font-size: 1.75rem; text-decoration: none; letter-spacing: .01em; }
+.lema { color: var(--gris-medio); font-size: .95rem; }
+
+/* Navegación */
+.navegacion { border-top: 1px solid var(--gris-linea); border-bottom: 1px solid var(--gris-linea); background: var(--papel); }
+.navegacion ul { list-style: none; display: flex; gap: 2rem; }
+.navegacion a {
+    display: inline-block;
+    padding: .9rem 0;
+    text-decoration: none;
+    color: var(--gris-texto);
+    border-bottom: 2px solid transparent;
+}
+.navegacion a:hover { color: var(--cafe-oscuro); }
+.navegacion a.activo { color: var(--cafe-oscuro); border-bottom-color: var(--cafe-claro); }
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--cafe-oscuro);
+    outline-offset: 3px;
+}
+
+/* Contenido */
+main { flex: 1; padding: 3rem 0 4rem; }
+main section + section { margin-top: 3.5rem; }
+.intro { color: var(--gris-medio); margin-bottom: 2rem; max-width: 60ch; }
+
+.portada { background: var(--cafe-suave); padding: 3.5rem 2.5rem; border-radius: 4px; }
+.portada h1 { font-size: 2.5rem; max-width: 20ch; }
+.portada p { max-width: 55ch; margin-bottom: 1.75rem; }
+
+.boton {
+    display: inline-block;
+    background: var(--cafe-oscuro);
+    color: var(--blanco);
+    padding: .75rem 1.5rem;
+    border: none;
+    border-radius: 3px;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+.boton:hover { background: #664c33; }
+
+/* Libros */
+.lista-libros { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
+.libro { border: 1px solid var(--gris-linea); padding: 1.5rem 1.25rem; background: var(--blanco); }
+.libro-genero { display: block; font-size: .85rem; color: var(--cafe-claro); margin-bottom: .75rem; }
+.libro p { color: var(--gris-medio); font-size: .95rem; }
+
+.horario { border-left: 3px solid var(--cafe-claro); padding-left: 1.25rem; }
+
+/* Servicios */
+.lista-servicios { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0 3rem; }
+.servicio { padding: 1.5rem 0; border-top: 1px solid var(--gris-linea); }
+.servicio p { color: var(--gris-medio); }
+
+/* Contacto */
+.dos-columnas { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; }
+.formulario label { display: block; margin: 1.25rem 0 .35rem; font-weight: 500; }
+.formulario label:first-child { margin-top: 0; }
+.formulario input, .formulario textarea {
+    width: 100%;
+    padding: .7rem .8rem;
+    border: 1px solid var(--gris-linea);
+    border-radius: 3px;
+    font: inherit;
+    color: inherit;
+    background: var(--papel);
+}
+.formulario button { margin-top: 1.5rem; }
+.datos { background: var(--papel); padding: 1.5rem; border: 1px solid var(--gris-linea); align-self: start; }
+.datos p { margin-bottom: .5rem; }
+.aviso { background: var(--cafe-suave); border-left: 3px solid var(--cafe-oscuro); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+
+/* Pie de página */
+.pie { background: var(--papel); border-top: 1px solid var(--gris-linea); padding: 2rem 0; font-size: .9rem; color: var(--gris-medio); }
+.pie p + p { margin-top: .25rem; }
+
+@media (max-width: 700px) {
+    .dos-columnas { grid-template-columns: 1fr; gap: 2rem; }
+    .portada { padding: 2.25rem 1.5rem; }
+    .portada h1 { font-size: 1.9rem; }
+    .navegacion ul { gap: 1.25rem; }
+}

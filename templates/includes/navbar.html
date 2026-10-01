@@ -1,0 +1,9 @@
+<nav class="navegacion" aria-label="Principal">
+    <div class="contenedor">
+        <ul>
+            <li><a href="{{ url_for('index') }}" {% if request.endpoint == 'index' %}class="activo" aria-current="page"{% endif %}>Inicio</a></li>
+            <li><a href="{{ url_for('servicios') }}" {% if request.endpoint == 'servicios' %}class="activo" aria-current="page"{% endif %}>Servicios</a></li>
+            <li><a href="{{ url_for('contacto') }}" {% if request.endpoint == 'contacto' %}class="activo" aria-current="page"{% endif %}>Contacto</a></li>
+        </ul>
+    </div>
+</nav>

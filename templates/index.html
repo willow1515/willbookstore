@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<section class="portada">
+    <h1>Una librería de barrio para quien lee con calma.</h1>
+    <p>En Willbookstore encuentras novelas, ensayos, libros infantiles y ediciones usadas, elegidos con cuidado y sin afán.</p>
+    <a class="boton" href="{{ url_for('servicios') }}">Ver servicios</a>
+</section>
+
+<section>
+    <h2>Libros destacados</h2>
+    <ul class="lista-libros">
+        {% for libro in libros %}
+        <li class="libro">
+            <span class="libro-genero">{{ libro.genero }}</span>
+            <h3>{{ libro.titulo }}</h3>
+            <p>{{ libro.autor }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section class="horario">
+    <h2>Horario de atención</h2>
+    <p>Lunes a sábado, de 9:00 a. m. a 7:00 p. m.</p>
+    <p>Domingos, de 10:00 a. m. a 3:00 p. m.</p>
+</section>
+{% endblock %}
